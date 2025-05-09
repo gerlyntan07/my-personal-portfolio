@@ -1,28 +1,12 @@
-import React, { useRef, useState } from 'react';
-import { View, Text, Image, ActivityIndicator, ScrollView, Dimensions } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
-import styles from '@/assets/styles/homescreen.js';
+import styles from '@/assets/styles/skills.js';
 import { useFonts } from 'expo-font';
-import AntDesign from '@expo/vector-icons/AntDesign';
-import Feather from '@expo/vector-icons/Feather';
-import Octicons from '@expo/vector-icons/Octicons';
-
-import mypic from '@/assets/images/1x1-grad pic.jpg';
-import cvsuLogo from '@/assets/images/cvsu-logo.png';
-
+import { LinearGradient } from 'expo-linear-gradient';
+import React from 'react';
+import { ActivityIndicator, Dimensions, ScrollView, Text, View } from 'react-native';
 
 export default function HomeScreen() {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [liked, setLiked] = useState(false);
-  const scrollRef = useRef(null);
 
   const { width } = Dimensions.get('window');
-  const sliderWidth = (width * 0.9) - 40;
-
-  const onScroll = (event) => {
-    const index = Math.round(event.nativeEvent.contentOffset.x / sliderWidth);
-    setActiveIndex(index);
-  };
 
   const [fontsLoaded] = useFonts({
     'Poppins-Reg': require('@/assets/fonts/Poppins-Regular.ttf'),
@@ -41,27 +25,21 @@ export default function HomeScreen() {
     );
   }
 
-  const IGCarouselData = [
-    { id: 1, src: require('@/assets/images/1.jpg') },
-    { id: 2, src: require('@/assets/images/2.jpg') },
-    { id: 3, src: require('@/assets/images/paint-on-tote.jpg') },
-    { id: 4, src: require('@/assets/images/4.jpg') },
-    { id: 5, src: require('@/assets/images/5.jpg') },
-    { id: 6, src: require('@/assets/images/roxe.jpg') },
-    { id: 7, src: require('@/assets/images/knitting.jpg') },
-    { id: 8, src: require('@/assets/images/knitted-shoulder-bag.jpg') },
-  ]
 
   return (
     <ScrollView style={{ flex: 1 }} contentContainerStyle={{ flexGrow: 1 }}>
       <LinearGradient colors={['#50A793', '#35384A', '#35384A', '#1B202B']} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} style={styles.mainContainer}>
+        <Text style={styles.skillsTitle}>ACQUIRED SKILLS</Text>
 
-
-        <LinearGradient colors={['#87AD93', '#176E31']} start={{ x: 0, y: 0.5 }} end={{ x: 1, y: 0.5 }} style={styles.schoolContainer}>
-          <Image source={cvsuLogo} style={styles.cvsuLogoImg} />
-          <Text style={styles.cvsuLogoText}>3rd year Computer Science at Cavite State University - Bacoor Campus</Text>
+        <LinearGradient colors={['#434B5E', '#6E7482', '#434B5E']} style={styles.skillCard}>
+          <Text style={styles.skill}>Full-Stack{"\n"}Development</Text>
+          <Text style={styles.skillDesc}>I often get the role of both front-end and back-end developer in group projects. I enjoy coding things from scratch, building seamless user experiences, and crafting ideas to life.</Text>
         </LinearGradient>
 
+        <LinearGradient colors={['#434B5E', '#6E7482', '#434B5E']} style={styles.skillCard}>
+          <Text style={styles.skill}>UI Design</Text>
+          <Text style={styles.skillDesc}>Art is one thing I have been fond of doing since I was a kid. I love playing with colors and making simple yet appealing designs.</Text>
+        </LinearGradient>
 
       </LinearGradient>
     </ScrollView>

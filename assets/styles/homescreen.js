@@ -1,4 +1,4 @@
-import { StyleSheet, Dimensions } from 'react-native';
+import { Dimensions, StyleSheet } from 'react-native';
 
 const { width } = Dimensions.get('window');
 const CARD_WIDTH = width * 0.9;
@@ -39,17 +39,22 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',    
     boxShadow: CARD_SHADOW,
-    marginTop: 100,
+    marginTop: 100,    
   },
   imageWrapper: {
-    backgroundColor: 'rgba(38, 77, 68, 0.6)',
-    padding: 7,
+    padding: 10,
     borderRadius: 100,
-    marginTop: '-25%'
+    marginTop: '-25%',
+    aspectRatio: 1,
+    width: 170,
+    height: 170,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   image: {
-    width: 180,
-    height: 180,
+    width: '100%',
+    height: '100%',
+    resizeMode: 'contain',
     borderRadius: 100,
   },
   intro: {
@@ -88,22 +93,32 @@ const styles = StyleSheet.create({
     height: 'auto',
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-around',
+    justifyContent: 'space-evenly',
     marginTop: 30,
     borderRadius: 20,
     paddingVertical: 20,
     boxShadow: CARD_SHADOW,
   },
+  cvsulogo_container: {
+    width: '25%',
+    aspectRatio: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   cvsuLogoImg: {
-    width: 90,
-    height: 80,
+    width: '100%',
+    height: '100%',
+    resizeMode: 'contain',
+  },
+  yearAtcvsu: {
+    width: '60%',
   },
   cvsuLogoText: {
     fontSize: 15,
     color: '#fff',
     textAlign: 'left',
     fontFamily: 'Poppins-Reg',
-    width: '55%',
+    width: '100%',
   },
   artsSection: {
     width: CARD_WIDTH,

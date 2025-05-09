@@ -1,11 +1,11 @@
-import React, { useRef, useState } from 'react';
-import { View, Text, Image, ActivityIndicator, ScrollView, Dimensions } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
 import styles from '@/assets/styles/homescreen.js';
-import { useFonts } from 'expo-font';
 import AntDesign from '@expo/vector-icons/AntDesign';
 import Feather from '@expo/vector-icons/Feather';
 import Octicons from '@expo/vector-icons/Octicons';
+import { useFonts } from 'expo-font';
+import { LinearGradient } from 'expo-linear-gradient';
+import React, { useRef, useState } from 'react';
+import { ActivityIndicator, Dimensions, Image, ScrollView, Text, View } from 'react-native';
 
 import mypic from '@/assets/images/1x1-grad pic.jpg';
 import cvsuLogo from '@/assets/images/cvsu-logo.png';
@@ -57,9 +57,9 @@ export default function HomeScreen() {
       <LinearGradient colors={['#50A793', '#35384A', '#35384A', '#1B202B']} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} style={styles.mainContainer}>
 
         <LinearGradient colors={['#434B5E', '#6E7482', '#434B5E']} style={styles.card}>
-          <View style={styles.imageWrapper}>
+          <LinearGradient colors={['rgba(54, 128, 110, 0.1)', 'rgb(79, 136, 123)', 'rgb(69, 110, 100)']} style={styles.imageWrapper}>
             <Image source={mypic} style={styles.image} />
-          </View>
+          </LinearGradient>
 
           <Text style={styles.intro}>
             say <Text style={styles.bold}>hello</Text> to my <Text style={styles.bold}>world</Text>! I’m
@@ -76,8 +76,12 @@ export default function HomeScreen() {
 
 
         <LinearGradient colors={['#87AD93', '#176E31']} start={{ x: 0, y: 0.5 }} end={{ x: 1, y: 0.5 }} style={styles.schoolContainer}>
-          <Image source={cvsuLogo} style={styles.cvsuLogoImg} />
-          <Text style={styles.cvsuLogoText}>3rd year Computer Science at Cavite State University - Bacoor Campus</Text>
+          <View style={styles.cvsulogo_container}>
+            <Image source={cvsuLogo} style={styles.cvsuLogoImg} />
+          </View>          
+          <View style={styles.yearAtcvsu}>
+            <Text style={styles.cvsuLogoText}>3rd year Computer Science at Cavite State University - Bacoor Campus</Text>
+          </View>          
         </LinearGradient>
 
         <View style={styles.famSection}>
